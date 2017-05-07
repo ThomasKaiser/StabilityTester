@@ -60,7 +60,8 @@ fi
 
 # start to test
 AVAILABLEFREQUENCIES="1152000 1200000 1248000 1296000"
-echo performance >${CPUFREQ_HANDLER}/scaling_governor
+echo performance >${CPUFREQ_HANDLER}scaling_governor
+echo $COOLDOWNFREQ >${CPUFREQ_HANDLER}scaling_min_freq
 for FREQUENCY in $AVAILABLEFREQUENCIES
 do
     if [ $FREQUENCY -ge $MINFREQUENCY ] && [ $FREQUENCY -le $MAXFREQUENCY ];
