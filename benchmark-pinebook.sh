@@ -6,8 +6,9 @@ COOLDOWNTEMP=50
 RunTests() {
 	# 10 openssl runs
 	CoolDown
-	echo -e "Testing openssl speed rsa2048 -multi 4:"
-	for i in $(seq 1 10) ; do openssl speed rsa2048 -multi 4 2>&1 | grep '^rsa' ; done
+	CPUCores=$(grep -c processor /proc/cpuinfo)
+	echo -e "Testing openssl speed rsa2048 -multi ${CPUCores}:"
+	for i in $(seq 1 10) ; do openssl speed rsa2048 -multi ${CPUCores} 2>&1 | grep '^rsa' ; done
 
 	# 120 seconds cpuminer
 	CoolDown
