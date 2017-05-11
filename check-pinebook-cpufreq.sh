@@ -11,7 +11,7 @@ fi
 # mv /boot/pine64/sun50i-a64-pine64-pinebook.dtb.bak /boot/pine64/sun50i-a64-pine64-pinebook.dtb
 if [ ! -f /boot/pine64/pinebook_overclock_enabled.dts ]; then
 	echo -e "\nInstall overclocked DT and other prerequisits\nAn automated reboot will happen once\n"
-	apt install -y libmpich-dev device-tree-compiler
+	apt install -y libmpich-dev device-tree-compiler libmpich12
 	curl -L "https://raw.githubusercontent.com/ThomasKaiser/StabilityTester/master/pinebook_overclock_enabled.dts" \
 		-f --progress-bar --output /boot/pine64/pinebook_overclock_enabled.dts
 	cp -p /boot/pine64/sun50i-a64-pine64-pinebook.dtb /boot/pine64/sun50i-a64-pine64-pinebook.dtb.bak
